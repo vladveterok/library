@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'author'
+
 # God damn, rubocop, what do you want me to describe here?
 class Author
   attr_reader :name
@@ -13,12 +15,12 @@ class Author
   end
 
   def self.authors
-    @authors.uniq || []
+    @authors || []
   end
 
   def self.authors!(author)
     @authors ||= []
-    @authors << author.name
+    @authors << author unless @authors.find { |auth| auth.name == author.name }
   end
 
   private
