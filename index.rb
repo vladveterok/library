@@ -2,5 +2,8 @@
 
 require_relative 'author.rb'
 
-author1 = Author.new('Foo Barovich', 'born,lived,died')
-puts author1
+puts author1 = Author.new('Foo Barovich', 'born,lived,died')
+puts author2 = Author.new('Foo Barovich', 'born,lived,died')
+puts author3 = Author.new('Veniamin Fuck', 'born,lived,died')
+puts '============='
+puts Author.authors
