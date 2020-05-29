@@ -20,7 +20,7 @@ class Book
 
   def self.add_to_books(book)
     @all_books ||= []
-    @all_books << book unless @all_books.find { |b| b.title == book.title }
+    @all_books << book
   end
 
   private
