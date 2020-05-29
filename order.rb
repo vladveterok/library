@@ -11,6 +11,14 @@ class Order
 
   private
 
+  def add_book(book)
+    # Some code here
+  end
+
+  def add_reader(reader)
+    # Some code here
+  end
+
   def to_s
     "type: #{self.class.name}, " \
     "book: #{@book}, " \
@@ -19,4 +27,5 @@ class Order
   end
 end
 
-puts order1 = Order.new
+order1 = Order.new
+puts order1
