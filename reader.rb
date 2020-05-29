@@ -3,6 +3,7 @@
 # This is Reader. Readers read books
 class Reader
   attr_reader :name
+  attr_reader :email
 
   def initialize(args)
     @name   = args[:name]
@@ -20,7 +21,7 @@ class Reader
 
   def self.add_to_readers(reader)
     @all_readers ||= []
-    @all_readers << reader
+    @all_readers << reader unless @all_readers.find { |r| r.email == reader.email }
   end
 
   private
@@ -31,6 +32,6 @@ class Reader
     "email: #{@email}, " \
     "city: #{@city}, " \
     "street: #{@street}, " \
-    "house: #{@house}"
+    "house: #{@house}."
   end
 end
