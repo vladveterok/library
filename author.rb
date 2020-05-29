@@ -13,12 +13,12 @@ class Author
   end
 
   def self.all_authors
-    @authors ||= []
+    @all_authors ||= []
   end
 
   def self.add_to_authors(author)
-    @authors ||= []
-    @authors << author unless @authors.find { |auth| auth.name == author.name }
+    @all_authors ||= []
+    @all_authors << author unless @all_authors.find { |auth| auth.name == author.name }
   end
 
   private

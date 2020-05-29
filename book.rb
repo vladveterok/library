@@ -15,12 +15,12 @@ class Book
   end
 
   def self.all_books
-    @books
+    @all_books ||= []
   end
 
   def self.add_to_books(book)
-    @books ||= []
-    @books << book unless @books.find { |b| b.title == book.title }
+    @all_books ||= []
+    @all_books << book unless @all_books.find { |b| b.title == book.title }
   end
 
   private
