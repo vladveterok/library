@@ -13,7 +13,7 @@ class Author
   end
 
   def self.all_authors
-    @authors
+    @authors ||= []
   end
 
   def self.add_to_authors(author)
