@@ -26,6 +26,6 @@ class Author
   def to_s
     "type: #{self.class.name}, " \
     "name: #{@name}, " \
-    "bio: #{@biography}, "
+    "bio: #{@biography}."
   end
 end

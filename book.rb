@@ -32,6 +32,6 @@ class Book
   def to_s
     "type: #{self.class.name}, " \
     "title: #{@title}, " \
-    "author: #{@author}, "
+    "author: #{@author}."
   end
 end
