@@ -12,6 +12,10 @@ class Library
     @all_entities = File.exist?(lib_db) ? load_yaml : File.open(lib_db, 'w')
   end
 
+  def add_to_library(*entities)
+    @all_entities.push(*entities)
+  end
+
   def save_to_yaml(object, file)
     File.open(file, 'a') do |f|
       f.write(object.to_yaml)
