@@ -5,6 +5,9 @@ require_relative 'reader'
 
 # Orders are made by readers who want to pick up a book
 class Order
+  attr_reader :book
+  attr_reader :reader
+
   def initialize(book = 'test', reader = 'test', date = Time.new.strftime('%d/%m/%Y'))
     # Some code here
     @book = add_book(book)
