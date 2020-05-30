@@ -16,11 +16,19 @@ class Library
     @all_entities.push(*entities)
   end
 
-  def save_to_yaml(object, file)
-    File.open(file, 'a') do |f|
-      f.write(object.to_yaml)
+  def save
+    File.open(lib_db, 'a') do |f|
+      all_entities.each do |ent|
+        f.write(ent.to_yaml)
+      end
     end
   end
+
+  # def save_to_yaml(object, file)
+  #  File.open(file, 'a') do |f|
+  #    f.write(object.to_yaml)
+  #  end
+  # end
 
   def load_yaml
     File.open(lib_db, 'r') do |f|

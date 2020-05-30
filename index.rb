@@ -10,8 +10,10 @@ puts '===========INSTANTIATE LIBRARY============'
 library = Library.new
 
 puts '===========CHECK DB============'
-puts '===========CHECK ALL_ENTITIES============'
+puts '===========CHECK ALL_ENTITIES BEFORE CREATING NEW============'
 puts library.all_entities
+puts "the number of entities is #{library.all_entities.size}"
+puts library.all_entities[rand(1..library.all_entities.size-1)].class
 
 puts '===========CREATE NEW ENTITIES============'
 puts '===========AUTHORS============'
@@ -51,3 +53,5 @@ puts '===========add_to_library============'
 library.add_to_library(author1, author2, book1, book2, book3, reader1, reader2)
 puts library.all_entities
 
+puts '===========SAVE LIBRARY============'
+# library.save
