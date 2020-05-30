@@ -5,10 +5,11 @@ require 'yaml'
 # Library class
 class Library
   attr_reader :lib_db
+  attr_reader :all_entities
 
   def initialize
     @lib_db = 'library.yaml'
-    File.exist?(lib_db) ? load_yaml : File.open(lib_db, 'w')
+    @all_entities = File.exist?(lib_db) ? load_yaml : File.open(lib_db, 'w')
   end
 
   def save_to_yaml(object, file)
@@ -23,3 +24,6 @@ class Library
     end
   end
 end
+
+# Add Array of entities
+# Change save method so it just saves into yaml all the entities from the array
