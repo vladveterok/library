@@ -10,20 +10,21 @@ class Order
 
   def initialize(book = 'test', reader = 'test', date = Time.new.strftime('%d/%m/%Y'))
     # Some code here
-    @book = add_book(book)
-    @reader = add_reader(reader)
+    @book = find_book(book)
+    @reader = find_reader(reader)
     @date = date
 
     @book.add_to_readers(@reader)
+    @reader.add_to_books(@book)
   end
 
   private
 
-  def add_book(book)
+  def find_book(book)
     Book.all_books.find { |b| b.title == book }
   end
 
-  def add_reader(reader)
+  def find_reader(reader)
     Reader.all_readers.find { |r| r.name == reader }
   end
 
@@ -34,18 +35,3 @@ class Order
     date: #{@date}"
   end
 end
-
-# Books
-book1 = Book.new("Book 1", "Foo")
-
-# Readers
-reader1 = Reader.new(
-  name: "Alex",
-  email: "alex@gmail.com",
-  city: "Kyiv",
-  street: "Shoto st",
-  house: "kek"
-)
-
-# Orders 
-order1 = Order.new("Book 1", "Alex")

@@ -45,16 +45,23 @@ reader2 = Reader.new(
   house: "big"
 )
 
+reader3 = Reader.new(
+  name: "Joh",
+  email: "joh@gmail.com",
+  city: "NY",
+  street: "Rich st",
+  house: "Not so big"
+)
+
 puts Reader.all_readers
 
 puts '===========ORDERS============'
 order1 = Order.new(book1.title, reader1.name)
 order2 = Order.new(book2.title, reader2.name)
 order3 = Order.new(book1.title, reader2.name)
-order4 = Order.new(book1.title, reader1.name)
 
 puts '===========add_to_library============'
-library.add_to_library(author1, author2, book1, book2, book3, reader1, reader2, order1, order2)
+library.add_to_library(author1, author2, book1, book2, book3, reader1, reader2, order1, order2, order3)
 puts library.all_entities
 
 puts '===========SAVE LIBRARY============'
@@ -62,5 +69,10 @@ puts '===========SAVE LIBRARY============'
 
 puts '===========ALL READERS OF A BOOK============'
 puts book1.all_readers
+puts 
+puts book2.all_readers
 
 puts '===========ALL BOOKS OF A READER============'
+puts reader1.all_books
+puts
+puts reader2.all_books
