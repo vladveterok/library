@@ -44,4 +44,3 @@ reader1 = Reader.new(
 
 # Orders 
 order1 = Order.new("Book 1", "Alex")
-puts order1

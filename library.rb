@@ -4,8 +4,11 @@ require 'yaml'
 
 # Library class
 class Library
+  attr_reader :lib_db
+
   def initialize
-    # Some code here
+    @lib_db = 'library.yaml'
+    File.exist?(lib_db) ? load_yaml : File.open(lib_db, 'w')
   end
 
   def save_to_yaml(object, file)
@@ -14,8 +17,8 @@ class Library
     end
   end
 
-  def load_yaml(file)
-    File.open(file, 'r') do |f|
+  def load_yaml
+    File.open(lib_db, 'r') do |f|
       YAML.load_stream(f)
     end
   end
