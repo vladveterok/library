@@ -13,6 +13,8 @@ class Order
     @book = add_book(book)
     @reader = add_reader(reader)
     @date = date
+
+    @book.add_to_readers(@reader)
   end
 
   private

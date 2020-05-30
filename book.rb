@@ -8,7 +8,7 @@ class Book
 
   def initialize(title, author)
     raise ArgumentError, 'Title should exist & should be a String' unless title.is_a?(String) && !title.strip.empty?
-
+    @all_readers = []
     @title = title
     @author = add_author(author)
     Book.add_to_books(self)
@@ -21,6 +21,14 @@ class Book
   def self.add_to_books(book)
     @all_books ||= []
     @all_books << book
+  end
+
+  def add_to_readers(reader)
+    @all_readers << reader
+  end
+
+  def all_readers
+    @all_readers || []
   end
 
   private

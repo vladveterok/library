@@ -13,7 +13,6 @@ puts '===========CHECK DB============'
 puts '===========CHECK ALL_ENTITIES BEFORE CREATING NEW============'
 puts library.all_entities
 puts "the number of entities is #{library.all_entities.size}"
-puts library.all_entities[rand(1..library.all_entities.size-1)].class
 
 puts '===========CREATE NEW ENTITIES============'
 puts '===========AUTHORS============'
@@ -48,10 +47,20 @@ reader2 = Reader.new(
 
 puts Reader.all_readers
 
-puts '===========ORDERS============X'
+puts '===========ORDERS============'
+order1 = Order.new(book1.title, reader1.name)
+order2 = Order.new(book2.title, reader2.name)
+order3 = Order.new(book1.title, reader2.name)
+order4 = Order.new(book1.title, reader1.name)
+
 puts '===========add_to_library============'
-library.add_to_library(author1, author2, book1, book2, book3, reader1, reader2)
+library.add_to_library(author1, author2, book1, book2, book3, reader1, reader2, order1, order2)
 puts library.all_entities
 
 puts '===========SAVE LIBRARY============'
 # library.save
+
+puts '===========ALL READERS OF A BOOK============'
+puts book1.all_readers
+
+puts '===========ALL BOOKS OF A READER============'
