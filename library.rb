@@ -40,7 +40,7 @@ class Library
                  .max_by(num) { |book| book.all_readers.uniq.length }
   end
 
-  def number_of_top_books_readers(num = 3)
+  def count_top_books_readers(num = 3)
     top_book(num).flat_map(&:all_readers).uniq.length
   end
 end
