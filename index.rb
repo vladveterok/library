@@ -8,8 +8,9 @@ require_relative 'library'
 
 puts '===========INSTANTIATE LIBRARY============'
 library = Library.new
+puts '===========CLEAR ALL ENTITIES============'
+library.all_entities.clear
 
-puts '===========CHECK DB============'
 puts '===========CHECK ALL_ENTITIES BEFORE CREATING NEW============'
 puts library.all_entities
 puts "the number of entities is #{library.all_entities.size}"
@@ -19,15 +20,10 @@ puts '===========AUTHORS============'
 author1 = Author.new("Jack Kerouac")
 author2 = Author.new("Viktor Pelevin")
 
-puts Author.all_authors
-
 puts '===========BOOKS============'
 book1 = Book.new("Sailor Song", "Ken Kesey")
 book2 = Book.new("On The Road", "Jack Kerouac")
 book3 = Book.new("Big Sur", "Jack Kerouac")
-
-puts Book.all_books
-puts Author.all_authors
 
 puts '===========READERS============'
 reader1 = Reader.new(
@@ -53,8 +49,6 @@ reader3 = Reader.new(
   house: "Not so big"
 )
 
-puts Reader.all_readers
-
 puts '===========ORDERS============'
 order1 = Order.new(book1.title, reader1.name)
 order2 = Order.new(book2.title, reader2.name)
@@ -62,7 +56,6 @@ order3 = Order.new(book1.title, reader2.name)
 
 puts '===========add_to_library============'
 library.add_to_library(author1, author2, book1, book2, book3, reader1, reader2, order1, order2, order3)
-puts library.all_entities
 
 puts '===========SAVE LIBRARY============'
 # library.save
@@ -76,3 +69,16 @@ puts '===========ALL BOOKS OF A READER============'
 puts reader1.all_books
 puts
 puts reader2.all_books
+
+puts '===========CHECK CLASSES OF ALL ENTITIES============'
+library.all_entities.each do |en|
+  puts en.class
+end
+puts '===========ALL READERS============'
+puts Reader.all_readers
+
+puts '===========ALL BOOKS============'
+puts Book.all_books
+
+puts '===========ALL AUTHORS============'
+puts Author.all_authors
