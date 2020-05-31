@@ -39,4 +39,8 @@ class Library
     @all_entities.select { |e| e.is_a?(Book) }
                  .max_by(num) { |book| book.all_readers.uniq.length }
   end
+
+  def number_of_top_books_readers(num = 3)
+    top_book(num).flat_map(&:all_readers).uniq.length
+  end
 end
