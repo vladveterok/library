@@ -11,7 +11,7 @@ class Book
     raise ArgumentError, 'Title should exist & should be a String' unless title.is_a?(String) && !title.strip.empty?
 
     @title = title
-    @author = add_author(author)
+    @author = find_author(author)
     Book.add_to_books(self)
 
     @all_readers = []
@@ -32,7 +32,7 @@ class Book
 
   private
 
-  def add_author(author)
+  def find_author(author)
     Author.all_authors.find { |auth| auth.name == author } || Author.new(author)
   end
 
