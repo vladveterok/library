@@ -50,12 +50,20 @@ reader3 = Reader.new(
 )
 
 puts '===========ORDERS============'
+# Reader1 Alex -- 2 book
+# Reader2 Maria -- 3 books
+# Reader3 Joh -- 1 book three times
 order1 = Order.new(book1.title, reader1.name)
 order2 = Order.new(book2.title, reader2.name)
 order3 = Order.new(book1.title, reader2.name)
+order4 = Order.new(book1.title, reader3.name)
+order5 = Order.new(book1.title, reader3.name)
+order6 = Order.new(book1.title, reader3.name)
+order7 = Order.new(book3.title, reader2.name)
+order8 = Order.new(book2.title, reader1.name)
 
 puts '===========add_to_library============'
-library.add_to_library(author1, author2, book1, book2, book3, reader1, reader2, order1, order2, order3)
+library.add_to_library(author1, author2, book1, book2, book3, reader1, reader2, reader3)
 
 puts '===========SAVE LIBRARY============'
 # library.save
@@ -74,11 +82,6 @@ puts '===========CHECK CLASSES OF ALL ENTITIES============'
 library.all_entities.each do |en|
   puts en.class
 end
-puts '===========ALL READERS============'
-puts Reader.all_readers
 
-puts '===========ALL BOOKS============'
-puts Book.all_books
-
-puts '===========ALL AUTHORS============'
-puts Author.all_authors
+puts '===========TOP READER============'
+puts library.top_reader(2)

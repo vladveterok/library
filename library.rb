@@ -24,18 +24,14 @@ class Library
     end
   end
 
-  # def save_to_yaml(object, file)
-  #  File.open(file, 'a') do |f|
-  #    f.write(object.to_yaml)
-  #  end
-  # end
-
   def load_yaml
     File.open(lib_db, 'r') do |f|
       YAML.load_stream(f)
     end
   end
-end
 
-# Add Array of entities
-# Change save method so it just saves into yaml all the entities from the array
+  def top_reader(num = 1)
+    @all_entities.select { |e| e.is_a?(Reader) }
+                 .max_by(num) { |r| r.all_books.uniq.length }
+  end
+end
