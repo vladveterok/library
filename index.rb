@@ -27,34 +27,34 @@ book3 = Book.new("Big Sur", "Jack Kerouac")
 
 puts '===========READERS============'
 reader1 = Reader.new(
-  name: "One Alex",
-  email: "alex@gmail.com",
-  city: "Kyiv",
-  street: "Shoto st",
-  house: "kek"
+  "One Alex",
+  "alex@gmail.com",
+  "Kyiv",
+  "Shoto st",
+  5
 )
 reader2 = Reader.new(
-  name: "Two Maria",
-  email: "maria@gmail.com",
-  city: "LA",
-  street: "Shoto st",
-  house: "big"
+  "Two Maria",
+  "maria@gmail.com",
+  "LA",
+  "Shoto st",
+  7
 )
 
-reader3 = Reader.new(
-  name: "Three John",
-  email: "joh@gmail.com",
-  city: "NY",
-  street: "Rich st",
-  house: "Not so big"
+puts reader3 = Reader.new(
+  "Three John",
+  "joh@gmail.com",
+  "NY",
+  "Rich st",
+  4
 )
 
 reader4 = Reader.new(
-  name: "Four Lil",
-  email: "lil@gmail.com",
-  city: "WG",
-  street: "Bitch st",
-  house: "Well big enough"
+  "Four Lil",
+  "lil@gmail.com",
+  "WG",
+  "Bitch st",
+  159
 )
 
 puts '===========ORDERS============'

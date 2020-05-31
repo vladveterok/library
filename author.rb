@@ -5,7 +5,7 @@ class Author
   attr_reader :name
 
   def initialize(name, biography = 'empty')
-    raise ArgumentError, 'Name should exist & should be a String' unless name.is_a?(String) && !name.strip.empty?
+    raise ArgumentError, 'Name should exist & should be a String^^' unless name.is_a?(String) && !name.strip.empty?
 
     @name = name
     @biography = biography
