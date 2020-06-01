@@ -92,10 +92,10 @@ library.all_entities.each do |en|
 end
 
 puts '===========TOP READER============'
-puts library.top_reader(2)
+puts library.top_readers(2)
 
 puts '===========TOP BOOK============'
-puts library.top_book(2)
+puts library.top_books(2)
 
 puts '===========NUM OF READERS OF TOP BOOKS============'
 puts library.count_top_books_readers(3)
