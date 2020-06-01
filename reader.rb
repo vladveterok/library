@@ -36,13 +36,15 @@ class Reader
   private
 
   def validate_arguments(*args)
-    arguments = %i[name email city street house]
-    count = 0
-    args.each do |arg|
-      raise ArgumentError, "#{arguments[count].capitalize} should exist ^^" if arg.is_a?(String) && arg.strip.empty?
-      raise ArgumentError, "#{arguments[count].capitalize} should be a positive number^^" if arg.is_a?(Integer) && !arg.positive?
+    strings = args.select { |v| v.is_a?(String) }
+    nums = args.select { |v| v.is_a?(Integer) }
 
-      count += 1
+    strings.each do |v|
+      raise ArgumentError, 'String souldn\'t be empty^^' if v.strip.empty?
+    end
+
+    nums.each do |v|
+      raise ArgumentError, 'Number should be positive^^' unless v.positive?
     end
   end
 
