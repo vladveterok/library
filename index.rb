@@ -2,105 +2,113 @@
 
 require_relative 'bootstrap'
 
-puts '===========INSTANTIATE LIBRARY============'
+puts '=========== 1) INSTANTIATE LIBRARY ============'
 library = Library.new
-puts '===========CLEAR ALL ENTITIES============'
+puts "Look, it's our library: #{library} :)"
+puts
+puts '=========== 2) CLEAR ALL ENTITIES ============'
 library&.all_entities&.clear if library.all_entities
-
-puts '===========CHECK ALL_ENTITIES BEFORE CREATING NEW============'
-puts library.all_entities
-# puts "the number of entities is #{library.all_entities.size}"
-
-puts '===========CREATE NEW ENTITIES============'
-puts '===========AUTHORS============'
-author1 = Author.new("Jack Kerouac")
-author2 = Author.new("Viktor Pelevin")
-
-puts '===========BOOKS============'
-book1 = Book.new("Sailor Song", "Ken Kesey")
-book2 = Book.new("On The Road", "Jack Kerouac")
-book3 = Book.new("Big Sur", "Jack Kerouac")
-
-puts '===========READERS============'
-reader1 = Reader.new(
-  "One Alex",
-  "alex@gmail.com",
-  "Kyiv",
-  "Shoto st",
+puts "Here we're cleaning out all the entities from our Library with 'library&.all_entities&.clear' and starting anew..."
+puts
+puts '=========== 3) CHECK ALL ENTITIES BEFORE CREATING NEW ONES ============'
+puts "The number of entities in the Library is #{library.all_entities.size}. Yep, all is clean and shining!"
+puts
+puts '=========== 4) CREATE BASIC ENTITIES ============'
+puts "Let's fill up out Library, shall we?"
+puts
+puts '=========== AUTHORS: ============'
+puts author1 = Author.new('Jack Kerouac')
+puts author2 = Author.new('Viktor Pelevin')
+puts
+puts '=========== BOOKS: ============'
+puts book1 = Book.new('Sailor Song', 'Ken Kesey')
+puts book2 = Book.new('On The Road', 'Jack Kerouac')
+puts book3 = Book.new('Big Sur', 'Jack Kerouac')
+puts book4 = Book.new('Generation P', 'Viktor Pelevin')
+puts
+puts '=========== READERS: ============'
+puts reader1 = Reader.new(
+  'One Alex',
+  'alex@gmail.com',
+  'Kyiv',
+  'Shoto st',
   5
 )
-reader2 = Reader.new(
-  "Two Maria",
-  "maria@gmail.com",
-  "LA",
-  "Shoto st",
+
+puts reader2 = Reader.new(
+  'Two Maria',
+  'maria@gmail.com',
+  'LA',
+  'Shoto st',
   7
 )
 
 puts reader3 = Reader.new(
-  "Three John",
-  "joh@gmail.com",
-  "NY",
-  "Rich st",
+  'Three John',
+  'joh@gmail.com',
+  'NY',
+  'Rich st',
   4
 )
 
-reader4 = Reader.new(
-  "Four Lil",
-  "lil@gmail.com",
-  "WG",
-  "Bitch st",
+puts reader4 = Reader.new(
+  'Four Lil',
+  'lil@gmail.com',
+  'WG',
+  'Bitch st',
   159
 )
+puts
+puts '=========== ORDERS: ============'
 
-
-puts '===========ORDERS============'
-# Reader1 Alex -- 2 book
-# Reader2 Maria -- 3 books
-# Reader3 Joh -- 1 book three times
-order1 = Order.new(book1.title, reader1.name)
+puts order1 = Order.new(book1.title, reader1.name)
 order2 = Order.new(book1.title, reader1.name)
 order3 = Order.new(book1.title, reader2.name)
-order4 = Order.new(book2.title, reader1.name)
+puts order4 = Order.new(book2.title, reader1.name)
 order5 = Order.new(book2.title, reader4.name)
 order6 = Order.new(book2.title, reader4.name)
-order7 = Order.new(book3.title, reader3.name)
+puts order7 = Order.new(book3.title, reader3.name)
 order8 = Order.new(book3.title, reader3.name)
 order9 = Order.new(book3.title, reader3.name)
 order10 = Order.new(book3.title, reader3.name)
 order11 = Order.new(book3.title, reader3.name)
 
-puts '===========add_to_library============'
-library.add_to_library(author1, author2, book1, book2, book3, reader1, reader2, reader3, reader4)
+puts "There are 11 orders actually, but I don't want to bore you with all this stuff"
+puts
 
-puts '===========SAVE LIBRARY============'
+puts '=========== 5) ADD ENTITIES TO LIBRARY ============'
+library.add_to_library(author1, author2,
+                       book1, book2, book3, book4,
+                       reader1, reader2, reader3, reader4,
+                       order1)
+
+puts "let's hit 'library.add_to_library' and add all these stuff into our library."
+puts "Let's see... the number of entities in Library is #{library.all_entities.size}. Library is full!:)"
+puts
+puts '=========== 6) SAVE LIBRARY ============'
 library.save
 
-puts '===========ALL READERS OF A BOOK============'
-puts book1.all_readers
-puts 
-puts book2.all_readers
-
-puts '===========ALL BOOKS OF A READER============'
-puts reader1.all_books
+puts "Here we just hit 'library.save', so you should see our entities in library.yaml from now!^^"
 puts
-puts reader2.all_books
-
-puts '===========CHECK CLASSES OF ALL ENTITIES============'
-library.all_entities.each do |en|
-  puts en.class
-end
-
-puts '===========TOP READER============'
+puts '=========== 7) THREE STATISTICAL METHODS: ============'
+puts '=========== I TOP READERS ============'
+puts 'The top reader is: '
+puts library.top_readers
+puts
+puts 'Two top readers are: '
 puts library.top_readers(2)
-
-puts '===========TOP BOOK============'
+puts
+puts '=========== II TOP BOOKS ============'
+puts 'The top book is: '
+puts library.top_books
+puts
+puts 'Two top books are: '
 puts library.top_books(2)
-
-puts '===========NUM OF READERS OF TOP BOOKS============'
-puts library.count_top_books_readers(3)
-
-puts 
-puts Author.all_authors
-puts Book.all_books
-puts Reader.all_readers
+puts
+puts '=========== III NUM OF READERS OF TOP BOOKS ============'
+puts 'The very number of readers of two top books is: '
+puts library.count_top_books_readers(2)
+puts
+puts '=========== THE END ============'
+puts 'Thanks for using our shitty library, come again later (or don\'t)!'
+puts

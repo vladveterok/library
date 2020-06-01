@@ -2,13 +2,12 @@
 
 require_relative 'bootstrap'
 
-# Orders only possible if reader and book are already exist
+# Orders only possible if reader and book exist
 class Order
   attr_reader :book
   attr_reader :reader
 
   def initialize(book = 'test', reader = 'test', date = Time.new.strftime('%d/%m/%Y'))
-    # Some code here
     @book = find_book(book)
     @reader = find_reader(reader)
     @date = date

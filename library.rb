@@ -17,22 +17,6 @@ class Library
     @all_entities.push(*entities)
   end
 
-  # Replace flag 'w' with 'a' for a dynamic record to a .yaml
-  # Now db rewrites each time
-  def save
-    File.open(lib_db, 'w') do |f|
-      all_entities.each do |ent|
-        f.write(ent.to_yaml)
-      end
-    end
-  end
-
-  def load_yaml
-    File.open(lib_db, 'r') do |f|
-      YAML.load_stream(f)
-    end
-  end
-
   def top_readers(num = 1)
     @all_entities.select { |ent| ent.is_a?(Reader) }
                  .max_by(num) { |r| r.all_books.uniq.length }
@@ -45,5 +29,21 @@ class Library
 
   def count_top_books_readers(num = 3)
     top_books(num).flat_map(&:all_readers).uniq.length
+  end
+
+  # In File.open() replace flag 'w' with 'a' for a dynamic record to the library.yaml.
+  # Now, for the purpose of testing, db rewrites itself each time
+  def save
+    File.open(lib_db, 'w') do |f|
+      all_entities.each do |ent|
+        f.write(ent.to_yaml)
+      end
+    end
+  end
+
+  def load_yaml
+    File.open(lib_db, 'r') do |f|
+      YAML.load_stream(f)
+    end
   end
 end
