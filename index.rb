@@ -14,19 +14,16 @@ puts '=========== 3) CHECK ALL ENTITIES BEFORE CREATING NEW ONES ============'
 puts "The number of entities in the Library is #{library.all_entities.size}. Yep, all is clean and shining!"
 puts
 puts '=========== 4) CREATE BASIC ENTITIES ============'
-puts "Let's fill up out Library, shall we?"
+puts "Let's fill up our Library, shall we?"
 puts
-puts '=========== AUTHORS: ============'
 puts author1 = Author.new('Jack Kerouac')
 puts author2 = Author.new('Viktor Pelevin')
 puts
-puts '=========== BOOKS: ============'
 puts book1 = Book.new('Sailor Song', 'Ken Kesey')
 puts book2 = Book.new('On The Road', 'Jack Kerouac')
 puts book3 = Book.new('Big Sur', 'Jack Kerouac')
 puts book4 = Book.new('Generation P', 'Viktor Pelevin')
 puts
-puts '=========== READERS: ============'
 puts reader1 = Reader.new(
   'One Alex',
   'alex@gmail.com',
@@ -59,7 +56,6 @@ puts reader4 = Reader.new(
   159
 )
 puts
-puts '=========== ORDERS: ============'
 
 puts order1 = Order.new(book1.title, reader1.name)
 order2 = Order.new(book1.title, reader1.name)
@@ -72,7 +68,7 @@ order8 = Order.new(book3.title, reader3.name)
 order9 = Order.new(book3.title, reader3.name)
 order10 = Order.new(book3.title, reader3.name)
 order11 = Order.new(book3.title, reader3.name)
-
+puts
 puts "There are 11 orders actually, but I don't want to bore you with all this stuff"
 puts
 

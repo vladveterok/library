@@ -34,7 +34,7 @@ class Library
   # In File.open() replace flag 'w' with 'a' for a dynamic record to the library.yaml.
   # Now, for the purpose of testing, db rewrites itself each time
   def save
-    File.open(lib_db, 'w') do |f|
+    File.open("./db/#{lib_db}", 'w') do |f|
       all_entities.each do |ent|
         f.write(ent.to_yaml)
       end
@@ -42,8 +42,8 @@ class Library
   end
 
   def load_yaml
-    File.open(lib_db, 'r') do |f|
-      YAML.load_stream(f)
+    File.open("./db/#{lib_db}", 'r') do |f|
+      @all_entities << YAML.load_stream(f)
     end
   end
 end
