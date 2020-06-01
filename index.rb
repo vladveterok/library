@@ -9,7 +9,7 @@ library&.all_entities&.clear if library.all_entities
 
 puts '===========CHECK ALL_ENTITIES BEFORE CREATING NEW============'
 puts library.all_entities
-puts "the number of entities is #{library.all_entities.size}"
+# puts "the number of entities is #{library.all_entities.size}"
 
 puts '===========CREATE NEW ENTITIES============'
 puts '===========AUTHORS============'
@@ -71,7 +71,7 @@ order10 = Order.new(book3.title, reader3.name)
 order11 = Order.new(book3.title, reader3.name)
 
 puts '===========add_to_library============'
-library.add_to_library(author1, author2, book1, book2, book3, reader1, reader2, reader3)
+library.add_to_library(author1, author2, book1, book2, book3, reader1, reader2, reader3, reader4)
 
 puts '===========SAVE LIBRARY============'
 library.save

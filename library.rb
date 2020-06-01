@@ -9,7 +9,8 @@ class Library
 
   def initialize
     @lib_db = 'library.yaml'
-    @all_entities = File.exist?(lib_db) ? load_yaml : File.open(lib_db, 'w')
+    @all_entities = []
+    File.exist?(lib_db) ? load_yaml : File.open(lib_db, 'w')
   end
 
   def add_to_library(*entities)
