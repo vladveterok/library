@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'bootstrap'
+require_relative '../bootstrap'
 
 # Orders only possible if reader and book exist
 class Order
