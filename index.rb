@@ -1,15 +1,11 @@
 # frozen_string_literal: true
 
-require_relative 'author'
-require_relative 'book'
-require_relative 'reader'
-require_relative 'order'
-require_relative 'library'
+require_relative 'bootstrap'
 
 puts '===========INSTANTIATE LIBRARY============'
 library = Library.new
 puts '===========CLEAR ALL ENTITIES============'
-library.all_entities.clear
+library&.all_entities&.clear if library.all_entities
 
 puts '===========CHECK ALL_ENTITIES BEFORE CREATING NEW============'
 puts library.all_entities
@@ -57,6 +53,7 @@ reader4 = Reader.new(
   159
 )
 
+
 puts '===========ORDERS============'
 # Reader1 Alex -- 2 book
 # Reader2 Maria -- 3 books
@@ -77,7 +74,7 @@ puts '===========add_to_library============'
 library.add_to_library(author1, author2, book1, book2, book3, reader1, reader2, reader3)
 
 puts '===========SAVE LIBRARY============'
-# library.save
+library.save
 
 puts '===========ALL READERS OF A BOOK============'
 puts book1.all_readers
@@ -102,3 +99,8 @@ puts library.top_book(2)
 
 puts '===========NUM OF READERS OF TOP BOOKS============'
 puts library.count_top_books_readers(3)
+
+puts 
+puts Author.all_authors
+puts Book.all_books
+puts Reader.all_readers

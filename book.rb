@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'author'
+require_relative 'bootstrap'
 
 # Well, that's a book. You can read it (actually, you can't)
 class Book

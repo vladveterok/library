@@ -16,8 +16,10 @@ class Library
     @all_entities.push(*entities)
   end
 
+  # Replace flag 'w' with 'a' for a dynamic record to a .yaml
+  # Now db rewrites each time
   def save
-    File.open(lib_db, 'a') do |f|
+    File.open(lib_db, 'w') do |f|
       all_entities.each do |ent|
         f.write(ent.to_yaml)
       end
