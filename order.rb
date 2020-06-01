@@ -2,7 +2,7 @@
 
 require_relative 'bootstrap'
 
-# Orders are made by readers who want to pick up a book
+# Orders only possible if reader and book are already exist
 class Order
   attr_reader :book
   attr_reader :reader

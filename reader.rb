@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# This is Reader. Readers read books
+# This is Reader. Readers order books
 class Reader
   attr_reader :name
   attr_reader :email

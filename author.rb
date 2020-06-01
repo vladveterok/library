@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# God damn, rubocop, what do you want me to describe here?
+# Author stores all the created authors if not stored already
 class Author
   attr_reader :name
 
@@ -13,7 +13,7 @@ class Author
   end
 
   def self.all_authors
-    @all_authors # ||= []
+    @all_authors ||= []
   end
 
   def self.add_to_authors(author)

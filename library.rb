@@ -2,7 +2,7 @@
 
 require 'yaml'
 
-# Library class
+# Library class collects entities, saves and loads library state into library.yaml
 class Library
   attr_reader :lib_db
   attr_reader :all_entities

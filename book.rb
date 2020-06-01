@@ -2,7 +2,7 @@
 
 require_relative 'bootstrap'
 
-# Well, that's a book. You can read it (actually, you can't)
+# Well, that's a book. You can read it (actually, you can't, but let's say you can)
 class Book
   attr_reader :title
   attr_reader :all_readers
