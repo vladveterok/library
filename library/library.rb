@@ -14,7 +14,16 @@ class Library
   end
 
   def add_to_library(*entities)
+    # @all_entities = entities.find_all { |entity| find_entity(entity) }
     @all_entities.push(*entities)
+  end
+
+  # Rearrenging "find" methods of entities
+  def find_entity(entity)
+    if entity.is_a? Author
+      return entity unless @all_entities.find { |auth| auth.name == entity.name }
+    end
+    entity
   end
 
   def top_readers(num = 1)

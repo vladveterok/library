@@ -21,6 +21,14 @@ class Author
     @all_authors << author unless @all_authors.find { |auth| auth.name == author.name }
   end
 
+  def ==(other)
+    if other.is_a? Author
+      @name == other.name
+    else
+      false
+    end
+  end
+
   private
 
   def to_s
