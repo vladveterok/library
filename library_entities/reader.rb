@@ -15,21 +15,21 @@ class Reader
     @street = street
     @house  = house
 
-    Reader.add_to_readers(self)
+    # Reader.add_to_readers(self)
 
     @all_books = []
   end
 
-  def self.all_readers
-    @all_readers ||= []
-  end
+  # def self.all_readers
+  #  @all_readers ||= []
+  # end
 
-  def self.add_to_readers(reader)
-    @all_readers ||= []
-    @all_readers << reader unless @all_readers.find { |r| r.email == reader.email }
-  end
+  # def self.add_to_readers(reader)
+  #  @all_readers ||= []
+  #  @all_readers << reader unless @all_readers.find { |r| r.email == reader.email }
+  # end
 
-  def add_to_books(book)
+  def add_book(book)
     @all_books << book
   end
 
