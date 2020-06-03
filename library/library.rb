@@ -14,16 +14,18 @@ class Library
   end
 
   def add_to_library(*entities)
-    # @all_entities = entities.find_all { |entity| find_entity(entity) }
-    @all_entities.push(*entities)
+    entities.each do |entity|
+      @all_entities.push entity if is_in_library?(entity)
+    end
   end
 
   # Rearrenging "find" methods of entities
-  def find_entity(entity)
-    if entity.is_a? Author
-      return entity unless @all_entities.find { |auth| auth.name == entity.name }
+  def is_in_library?(entity)
+    if entity.is_a?(Author) || entity.is_a?(Reader)
+      true unless @all_entities.any? { |ent| ent == entity }
+    else
+      entity
     end
-    entity
   end
 
   def top_readers(num = 1)
@@ -52,7 +54,7 @@ class Library
 
   def load_yaml
     File.open("./db/#{lib_db}", 'r') do |f|
-      @all_entities << YAML.load_stream(f)
+      # @all_entities << YAML.load_stream(f)
     end
   end
 end
