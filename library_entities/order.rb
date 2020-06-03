@@ -12,8 +12,8 @@ class Order
     @reader = find_reader(reader)
     @date = date
 
-    @book.add_to_readers(@reader)
-    @reader.add_to_books(@book)
+    @book.add_reader(@reader)
+    @reader.add_book(@book)
   end
 
   private
