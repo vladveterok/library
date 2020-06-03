@@ -33,6 +33,14 @@ class Reader
     @all_books << book
   end
 
+  def ==(other)
+    if other.is_a? Reader
+      @email == other.email
+    else
+      false
+    end
+  end
+
   private
 
   def validate_arguments(*args)
