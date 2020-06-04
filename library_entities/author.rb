@@ -9,17 +9,7 @@ class Author
 
     @name = name
     @biography = biography
-    # Author.add_to_authors(self)
   end
-
-  # def self.all_authors
-  #  @all_authors ||= []
-  # end
-
-  # def self.add_to_authors(author)
-  #  @all_authors ||= []
-  #  @all_authors << author unless @all_authors.find { |auth| auth.name == author.name }
-  # end
 
   def ==(other)
     if other.is_a? Author

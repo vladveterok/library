@@ -57,5 +57,5 @@ order7 = Order.new(book2, reader1)
 order8 = Order.new(book2, reader1)
 order9 = Order.new(book2, reader1)
 
-puts library.all_entities
+library.all_entities[0].each {|e| puts e.class}
 
