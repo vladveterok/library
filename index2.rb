@@ -18,11 +18,12 @@ puts "Let's fill up our Library, shall we?"
 puts
 puts author1 = Author.new('Jack Kerouac')
 puts author2 = Author.new('Viktor Pelevin')
+puts author3 = Author.new('Ken Kesey')
 puts
-puts book1 = Book.new('Sailor Song', 'Ken Kesey')
-puts book2 = Book.new('On The Road', 'Jack Kerouac')
-puts book3 = Book.new('Big Sur', 'Jack Kerouac')
-puts book4 = Book.new('Generation P', 'Viktor Pelevin')
+puts book1 = Book.new('Sailor Song', author3)
+puts book2 = Book.new('On The Road', author1)
+puts book3 = Book.new('Big Sur', author1)
+puts book4 = Book.new('Generation P', author2)
 puts
 puts reader1 = Reader.new(
   'One Alex',
@@ -57,17 +58,17 @@ puts reader4 = Reader.new(
 )
 puts
 
-puts order1 = Order.new(book1.title, reader1.name)
-order2 = Order.new(book1.title, reader1.name)
-order3 = Order.new(book1.title, reader2.name)
-puts order4 = Order.new(book2.title, reader1.name)
-order5 = Order.new(book2.title, reader4.name)
-order6 = Order.new(book2.title, reader4.name)
-puts order7 = Order.new(book3.title, reader3.name)
-order8 = Order.new(book3.title, reader3.name)
-order9 = Order.new(book3.title, reader3.name)
-order10 = Order.new(book3.title, reader3.name)
-order11 = Order.new(book3.title, reader3.name)
+puts order1 = Order.new(book1, reader1)
+     order2 = Order.new(book1, reader1)
+     order3 = Order.new(book1, reader2)
+puts order4 = Order.new(book2, reader1)
+     order5 = Order.new(book2, reader4)
+     order6 = Order.new(book2, reader4)
+puts order7 = Order.new(book3, reader3)
+     order8 = Order.new(book3, reader3)
+     order9 = Order.new(book3, reader3)
+     order10 = Order.new(book3, reader3)
+     order11 = Order.new(book3, reader3)
 puts
 puts "There are 11 orders actually, but I don't want to bore you with all this stuff"
 puts

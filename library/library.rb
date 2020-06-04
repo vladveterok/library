@@ -2,7 +2,7 @@
 
 require 'yaml'
 
-# Library class collects entities, saves and loads library state into library.yaml
+# Library class collects entities, saves library state into library.yaml and loads it
 class Library
   attr_reader :lib_db
   attr_reader :all_entities
@@ -15,22 +15,13 @@ class Library
 
   def add_to_library(*entities)
     entities.each do |entity|
-      @all_entities.push entity if is_in_library?(entity)
-    end
-  end
-
-  # Rearrenging "find" methods of entities
-  def is_in_library?(entity)
-    if entity.is_a?(Author) || entity.is_a?(Reader)
-      true unless @all_entities.any? { |ent| ent == entity }
-    else
-      entity
+      @all_entities.push entity if in_library?(entity)
     end
   end
 
   def top_readers(num = 1)
     @all_entities.select { |ent| ent.is_a?(Reader) }
-                 .max_by(num) { |r| r.all_books.uniq.length }
+                 .max_by(num) { |reader| reader.all_books.uniq.length }
   end
 
   def top_books(num = 1)
@@ -54,7 +45,17 @@ class Library
 
   def load_yaml
     File.open("./db/#{lib_db}", 'r') do |f|
-      # @all_entities << YAML.load_stream(f)
+      @all_entities << YAML.load_stream(f)
+    end
+  end
+
+  private
+
+  def in_library?(entity)
+    if entity.is_a?(Author) || entity.is_a?(Reader)
+      true unless @all_entities.any? { |ent| ent == entity }
+    else
+      entity
     end
   end
 end

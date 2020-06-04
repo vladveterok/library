@@ -7,9 +7,9 @@ class Order
   attr_reader :book
   attr_reader :reader
 
-  def initialize(book = 'test', reader = 'test', date = Time.new.strftime('%d/%m/%Y'))
-    @book = find_book(book)
-    @reader = find_reader(reader)
+  def initialize(book, reader, date = Time.new.strftime('%d/%m/%Y'))
+    @book = book # find_book(book)
+    @reader = reader # find_reader(reader)
     @date = date
 
     @book.add_reader(@reader)
@@ -18,13 +18,13 @@ class Order
 
   private
 
-  def find_book(book)
-    Book.all_books.find { |b| b.title == book }
-  end
+  # def find_book(book)
+  #   Book.all_books.find { |b| b.title == book }
+  # end
 
-  def find_reader(reader)
-    Reader.all_readers.find { |r| r.name == reader }
-  end
+  # def find_reader(reader)
+  #  Reader.all_readers.find { |r| r.name == reader }
+  # end
 
   def to_s
     "type: #{self.class.name},\n

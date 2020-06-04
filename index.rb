@@ -11,11 +11,12 @@ puts '=========== 2) CREATE BASIC ENTITIES ============'
 
 puts author1 = Author.new('Jack Kerouac')
 puts author2 = Author.new('Viktor Pelevin')
+puts author3 = Author.new('Ken Kesey')
 puts
-puts book1 = Book.new('Sailor Song', 'Ken Kesey')
-puts book2 = Book.new('On The Road', 'Jack Kerouac')
-puts book3 = Book.new('Big Sur', 'Jack Kerouac')
-puts book4 = Book.new('Generation P', 'Viktor Pelevin')
+puts book1 = Book.new('Sailor Song', author3)
+puts book2 = Book.new('On The Road', author1)
+puts book3 = Book.new('Big Sur', author1)
+puts book4 = Book.new('Generation P', author2)
 puts
 puts reader1 = Reader.new(
   'One Alex',
@@ -50,17 +51,17 @@ puts reader4 = Reader.new(
 )
 puts
 
-puts order1 = Order.new(book1.title, reader1.name)
-puts order2 = Order.new(book1.title, reader1.name)
-puts order3 = Order.new(book1.title, reader2.name)
-puts order4 = Order.new(book2.title, reader1.name)
-puts order5 = Order.new(book2.title, reader4.name)
-puts order6 = Order.new(book2.title, reader4.name)
-puts order7 = Order.new(book3.title, reader3.name)
-puts order8 = Order.new(book3.title, reader3.name)
-puts order9 = Order.new(book3.title, reader3.name)
-puts order10 = Order.new(book3.title, reader3.name)
-puts order11 = Order.new(book3.title, reader3.name)
+puts order1 = Order.new(book1, reader1)
+puts order2 = Order.new(book1, reader3)
+puts order3 = Order.new(book1, reader2)
+puts order4 = Order.new(book2, reader1)
+puts order5 = Order.new(book2, reader4)
+puts order6 = Order.new(book2, reader4)
+puts order7 = Order.new(book3, reader3)
+puts order8 = Order.new(book3, reader3)
+puts order9 = Order.new(book3, reader3)
+puts order10 = Order.new(book3, reader3)
+puts order11 = Order.new(book3, reader3)
 puts
 
 puts '=========== 3) ADD ENTITIES TO LIBRARY ============'
@@ -92,4 +93,4 @@ puts library.top_books(2)
 puts
 puts '=========== NUM OF READERS OF TOP BOOKS ============'
 puts 'The very number of readers of two top books is: '
-puts library.count_top_books_readers(2)
+puts library.count_top_books_readers
