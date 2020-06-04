@@ -45,7 +45,7 @@ class Library
 
   def load_yaml
     File.open("./db/#{lib_db}", 'r') do |f|
-      @all_entities << YAML.load_stream(f)
+      @all_entities.push(*YAML.load_stream(f))
     end
   end
 
