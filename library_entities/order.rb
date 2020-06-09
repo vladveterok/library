@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 require_relative '../bootstrap'
+require 'date'
 
 # Orders only possible if reader and book exist
 class Order
   attr_reader :book
   attr_reader :reader
 
-  def initialize(book, reader, date = Time.new.strftime('%d/%m/%Y'))
+  def initialize(book, reader, date = Date.today)
     @book = book
     @reader = reader
     @date = date
