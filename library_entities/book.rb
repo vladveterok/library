@@ -6,7 +6,7 @@ class Book
   attr_reader :all_readers
 
   def initialize(title, author)
-    raise ArgumentError, 'Title should exist & should be a String^^' unless title.is_a?(String) && !title.strip.empty?
+    raise ArgumentError, 'Title should exist & should be a String^^' if !title.is_a?(String) || title.strip.empty?
 
     @title = title
     @author = author
