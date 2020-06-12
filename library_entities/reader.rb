@@ -23,11 +23,7 @@ class Reader
   end
 
   def ==(other)
-    if other.is_a? Reader
-      @email == other.email
-    else
-      false
-    end
+    (other.is_a? Reader) && (@email == other.email)
   end
 
   private

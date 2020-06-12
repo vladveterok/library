@@ -12,11 +12,7 @@ class Author
   end
 
   def ==(other)
-    if other.is_a? Author
-      @name == other.name
-    else
-      false
-    end
+    (other.is_a? Author) && (@name == other.name)
   end
 
   private
