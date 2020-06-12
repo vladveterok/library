@@ -5,10 +5,11 @@ class Library
   attr_reader :lib_db
   attr_reader :all_entities
 
+  LIBRARY_FILE_NAME = 'library.yaml'
+
   def initialize
-    @lib_db = 'library.yaml'
     @all_entities = []
-    File.exist?("./db/#{lib_db}") ? load_yaml : File.open("./db/#{lib_db}", 'w')
+    File.exist?("./db/#{LIBRARY_FILE_NAME}") ? load_yaml : File.open("./db/#{LIBRARY_FILE_NAME}", 'w')
   end
 
   def add_to_library(*entities)
@@ -34,7 +35,7 @@ class Library
   # In File.open() replace flag 'w' with 'a' for a dynamic record to the library.yaml.
   # Now, for the purpose of testing, db rewrites itself each time
   def save
-    File.open("./db/#{lib_db}", 'w') do |file|
+    File.open("./db/#{LIBRARY_FILE_NAME}", 'w') do |file|
       all_entities.each do |ent|
         file.write(ent.to_yaml)
       end
@@ -42,7 +43,7 @@ class Library
   end
 
   def load_yaml
-    File.open("./db/#{lib_db}", 'r') do |file|
+    File.open("./db/#{LIBRARY_FILE_NAME}", 'r') do |file|
       @all_entities.push(*YAML.load_stream(file))
     end
   end
