@@ -14,6 +14,7 @@ puts '=========== 2) CREATE BASIC ENTITIES ============'
 puts author1 = Author.new('Jack Kerouac')
 puts author2 = Author.new('Viktor Pelevin')
 puts author3 = Author.new('Ken Kesey')
+puts author4 = Author.new('Ken Kesey')
 puts
 puts book1 = Book.new('Sailor Song', author3)
 puts book2 = Book.new('On The Road', author1)
@@ -51,6 +52,14 @@ puts reader4 = Reader.new(
   street: 'Bitch st',
   house: 159
 )
+
+puts reader5 = Reader.new(
+  name: 'Four Lil',
+  email: 'lil@gmail.com',
+  city: 'WG',
+  street: 'Bitch st',
+  house: 159
+)
 puts
 
 puts order1 = Order.new(book1, reader1)
@@ -68,9 +77,9 @@ puts
 
 puts '=========== 3) ADD ENTITIES TO LIBRARY ============'
 
-library.add_to_library(author1, author2,
+library.add_to_library(author1, author2, author3, author4,
                        book1, book2, book3, book4,
-                       reader1, reader2, reader3, reader4,
+                       reader1, reader2, reader3, reader4, reader5,
                        order1)
 
 puts library.all_entities

@@ -14,7 +14,7 @@ class Library
 
   def add_to_library(*entities)
     entities.each do |entity|
-      @all_entities.push entity if in_library?(entity)
+      @all_entities.push entity if not_in_library?(entity)
     end
   end
 
@@ -50,11 +50,7 @@ class Library
 
   private
 
-  def in_library?(entity)
-    if entity.is_a?(Author) || entity.is_a?(Reader)
-      true unless @all_entities.any? { |ent| ent == entity }
-    else
-      entity
-    end
+  def not_in_library?(entity)
+    @all_entities.any? { |ent| ent == entity } ? false : true
   end
 end
