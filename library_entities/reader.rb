@@ -6,7 +6,7 @@ class Reader
   attr_reader :email
   attr_reader :all_books
 
-  def initialize(name, email, city, street, house)
+  def initialize(name:, email:, city:, street:, house:)
     validate_arguments(name, email, city, street, house)
 
     @name   = name

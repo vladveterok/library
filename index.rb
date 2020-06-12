@@ -21,35 +21,35 @@ puts book3 = Book.new('Big Sur', author1)
 puts book4 = Book.new('Generation P', author2)
 puts
 puts reader1 = Reader.new(
-  'One Alex',
-  'alex@gmail.com',
-  'Kyiv',
-  'Shoto st',
-  5
+  name: 'One Alex',
+  email: 'alex@gmail.com',
+  city: 'Kyiv',
+  street: 'Shoto st',
+  house: 5
 )
-
+# name:, email:, city:, street:, house:
 puts reader2 = Reader.new(
-  'Two Maria',
-  'maria@gmail.com',
-  'LA',
-  'Shoto st',
-  7
+  name: 'Two Maria',
+  email: 'maria@gmail.com',
+  city: 'LA',
+  street: 'Shoto st',
+  house: 7
 )
 
 puts reader3 = Reader.new(
-  'Three John',
-  'joh@gmail.com',
-  'NY',
-  'Rich st',
-  4
+  name: 'Three John',
+  email: 'joh@gmail.com',
+  city: 'NY',
+  street: 'Rich st',
+  house: 4
 )
 
 puts reader4 = Reader.new(
-  'Four Lil',
-  'lil@gmail.com',
-  'WG',
-  'Bitch st',
-  159
+  name: 'Four Lil',
+  email: 'lil@gmail.com',
+  city: 'WG',
+  street: 'Bitch st',
+  house: 159
 )
 puts
 
