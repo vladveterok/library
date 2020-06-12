@@ -7,7 +7,7 @@ require 'yaml'
 puts '=========== 1) INSTANTIATE LIBRARY AND CLEAR ENTITIES FOR THE TEST PURPOSE ============'
 
 library = Library.new
-library&.all_entities&.clear if library.all_entities
+library.all_entities.clear if library.all_entities
 
 puts '=========== 2) CREATE BASIC ENTITIES ============'
 

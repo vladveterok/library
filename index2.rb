@@ -9,7 +9,7 @@ library = Library.new
 puts "Look, it's our library: #{library} :)"
 puts
 puts '=========== 2) CLEAR ALL ENTITIES ============'
-library&.all_entities&.clear if library.all_entities
+library.all_entities.clear if library.all_entities
 puts "Here we're cleaning out all the entities from our Library with 'library&.all_entities&.clear' and starting anew..."
 puts
 puts '=========== 3) CHECK ALL ENTITIES BEFORE CREATING NEW ONES ============'
