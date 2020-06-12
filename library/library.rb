@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'yaml'
-
 # Library class collects entities, saves library state into library.yaml and loads it
 class Library
   attr_reader :lib_db

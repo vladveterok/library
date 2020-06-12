@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../bootstrap'
-require 'date'
-
 # Orders only possible if reader and book exist
 class Order
   attr_reader :book

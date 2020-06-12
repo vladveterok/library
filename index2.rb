@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require_relative 'bootstrap'
+require 'date'
+require 'yaml'
 
 puts '=========== 1) INSTANTIATE LIBRARY ============'
 library = Library.new

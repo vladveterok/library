@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../bootstrap'
-
 # Well, that's a book. You can read it (actually, you can't, but let's say you can)
 class Book
   attr_reader :title
