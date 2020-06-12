@@ -18,12 +18,12 @@ class Library
   end
 
   def top_readers(num = 1)
-    @all_entities.select { |ent| ent.is_a?(Reader) }
+    @all_entities.select { |entity| entity.is_a?(Reader) }
                  .max_by(num) { |reader| reader.all_books.uniq.length }
   end
 
   def top_books(num = 1)
-    @all_entities.select { |e| e.is_a?(Book) }
+    @all_entities.select { |entity| entity.is_a?(Book) }
                  .max_by(num) { |book| book.all_readers.uniq.length }
   end
 
@@ -34,16 +34,16 @@ class Library
   # In File.open() replace flag 'w' with 'a' for a dynamic record to the library.yaml.
   # Now, for the purpose of testing, db rewrites itself each time
   def save
-    File.open("./db/#{lib_db}", 'w') do |f|
+    File.open("./db/#{lib_db}", 'w') do |file|
       all_entities.each do |ent|
-        f.write(ent.to_yaml)
+        file.write(ent.to_yaml)
       end
     end
   end
 
   def load_yaml
-    File.open("./db/#{lib_db}", 'r') do |f|
-      @all_entities.push(*YAML.load_stream(f))
+    File.open("./db/#{lib_db}", 'r') do |file|
+      @all_entities.push(*YAML.load_stream(file))
     end
   end
 

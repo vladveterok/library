@@ -29,15 +29,15 @@ class Reader
   private
 
   def validate_arguments(*args)
-    strings = args.select { |v| v.is_a?(String) }
-    nums = args.select { |v| v.is_a?(Integer) }
+    strings = args.select { |argument| argument.is_a?(String) }
+    nums = args.select { |argument| argument.is_a?(Integer) }
 
-    strings.each do |v|
-      raise ArgumentError, 'String souldn\'t be empty^^' if v.strip.empty?
+    strings.each do |argument|
+      raise ArgumentError, 'String souldn\'t be empty^^' if argument.strip.empty?
     end
 
-    nums.each do |v|
-      raise ArgumentError, 'Number should be positive^^' unless v.positive?
+    nums.each do |argument|
+      raise ArgumentError, 'Number should be positive^^' unless argument.positive?
     end
   end
 
