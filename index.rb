@@ -104,4 +104,4 @@ puts library.top_books(2)
 puts
 puts '=========== NUM OF READERS OF TOP BOOKS ============'
 puts 'The very number of readers of two top books is: '
-puts library.count_top_books_readers
+puts library.count_top_books_readers(2)
