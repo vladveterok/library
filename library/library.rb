@@ -3,19 +3,39 @@
 # Library class collects entities, saves library state into library.yaml and loads it
 class Library
   attr_reader :lib_db
-  attr_reader :all_entities
+  attr_reader :authors
 
   LIBRARY_FILE_NAME = 'library.yaml'
 
   def initialize
     @all_entities = []
+    @authors = []
+    @books   = []
+    @readers = []
+    @orders  = []
+
     File.exist?("./db/#{LIBRARY_FILE_NAME}") ? load_yaml : File.open("./db/#{LIBRARY_FILE_NAME}", 'w')
   end
 
+  #def add_to_library(*entities)
+  #  entities.each do |entity|
+  #    @all_entities.push entity if not_in_library?(entity)
+  #  end
+  #end
+
   def add_to_library(*entities)
     entities.each do |entity|
-      @all_entities.push entity if not_in_library?(entity)
+      next if in_library?(entity)
+
+      @authors.push entity if entity.is_a?(Author)
+      @books.push entity if entity.is_a?(Book)
+      @readers.push entity if entity.is_a?(Reader)
+      @orders.push entity if entity.is_a?(Order)
     end
+  end
+
+  def all_entities
+    @authors + @books + @readers + @orders
   end
 
   def top_readers(num = 1)
@@ -50,7 +70,13 @@ class Library
 
   private
 
-  def not_in_library?(entity)
-    @all_entities.any? { |ent| ent == entity } ? false : true
+  def in_library?(entity)
+    # @all_entities.any? { |ent| ent == entity } ? false : true
+    all_entities = @authors +
+                   @books +
+                   @readers +
+                   @orders
+
+    all_entities.any? { |ent| ent == entity } ? true : false
   end
 end
