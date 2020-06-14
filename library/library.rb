@@ -17,12 +17,6 @@ class Library
     File.exist?("./db/#{LIBRARY_FILE_NAME}") ? load_yaml : File.open("./db/#{LIBRARY_FILE_NAME}", 'w')
   end
 
-  # def add_to_library(*entities)
-  #  entities.each do |entity|
-  #    @all_entities.push entity if not_in_library?(entity)
-  #  end
-  # end
-
   def add_to_library(*entities)
     entities.each do |entity|
       next if in_library?(entity)
@@ -39,8 +33,9 @@ class Library
   end
 
   def top_readers(num = 1)
-    @all_entities.select { |entity| entity.is_a?(Reader) }
-                 .max_by(num) { |reader| reader.all_books.uniq.length }
+    #@all_entities.select { |entity| entity.is_a?(Reader) }
+    #             .max_by(num) { |reader| reader.all_books.uniq.length }
+    @readers.max_by(num) { |reader| reader.all_books.uniq.length }
   end
 
   def top_books(num = 1)
@@ -74,3 +69,7 @@ class Library
     all_entities.any? { |ent| ent == entity } ? true : false
   end
 end
+
+# rewrite sttistics
+# rewrite save/load
+# remove @all_entities
