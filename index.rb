@@ -63,16 +63,16 @@ puts reader5 = Reader.new(
 puts
 
 puts order1 = Order.new(book1, reader1)
-puts order2 = Order.new(book1, reader4)
-puts order3 = Order.new(book1, reader2)
-puts order4 = Order.new(book2, reader1)
-puts order5 = Order.new(book2, reader4)
-puts order6 = Order.new(book2, reader4)
-puts order7 = Order.new(book3, reader3)
-puts order8 = Order.new(book3, reader3)
+puts order2 = Order.new(book2, reader1)
+puts order3 = Order.new(book1, reader1)
+puts order4 = Order.new(book2, reader2)
+# puts order5 = Order.new(book2, reader4)
+# puts order6 = Order.new(book2, reader4)
+# puts order7 = Order.new(book3, reader3)
+puts order8 = Order.new(book2, reader3)
 puts order9 = Order.new(book3, reader3)
 puts order10 = Order.new(book3, reader3)
-puts order11 = Order.new(book3, reader3)
+# puts order11 = Order.new(book3, reader3)
 puts
 
 puts '=========== 3) ADD ENTITIES TO LIBRARY ============'
@@ -80,7 +80,7 @@ puts '=========== 3) ADD ENTITIES TO LIBRARY ============'
 library.add_to_library(author1, author2, author3, author4,
                        book1, book2, book3, book4,
                        reader1, reader2, reader3, reader4, reader5,
-                       order1)
+                       order1, order2, order3, order4, order8, order9, order10)
 
 puts library.all_entities
 
@@ -93,7 +93,7 @@ puts 'The top reader is: '
 puts library.top_readers
 puts
 puts 'Two top readers are: '
-puts library.top_readers(2)
+# puts library.top_readers(2)
 puts
 puts '=========== TOP BOOKS ============'
 puts 'The top book is: '

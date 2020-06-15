@@ -33,19 +33,20 @@ class Library
   end
 
   def top_readers(num = 1)
-    # @all_entities.select { |entity| entity.is_a?(Reader) }
-    #             .max_by(num) { |reader| reader.all_books.uniq.length }
-    @readers.max_by(num) { |reader| reader.all_books.uniq.length }
+    # @readers.max_by(num) { |reader| reader.all_books.uniq.length }
+
+    @orders.uniq.group_by(&:reader).max(num) { |a, b| a[1].length <=> b[1].length }
   end
 
   def top_books(num = 1)
     # @all_entities.select { |entity| entity.is_a?(Book) }
     #             .max_by(num) { |book| book.all_readers.uniq.length }
-    @books.max_by(num) { |book| book.all_readers.uniq.length }
+    @orders.uniq.group_by(&:book).max(num) { |a, b| a[1].length <=> b[1].length }
   end
 
   def count_top_books_readers(num = 3)
-    top_books(num).flat_map(&:all_readers).uniq.length
+    # top_books(num).flat_map(&:reader).uniq.length
+    top_books(num).flatten.select { |entity| entity.is_a?(Order) }.uniq(&:reader).count
   end
 
   # In File.open() replace flag 'w' with 'a' for a dynamic record to the library.yaml.
@@ -70,6 +71,9 @@ class Library
     all_entities.any? { |ent| ent == entity } ? true : false
   end
 end
+
+# Statistica: взять массив ордерс и max_by или group_by order.book => значение книга, значение -- ордеры
+# top = uniq_orders.group_by(&:reader).max(count) { |current, next| current[1].size <=> next[1].size }
 
 # rewrite sttistics
 # rewrite save/load
