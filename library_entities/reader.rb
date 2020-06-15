@@ -6,7 +6,7 @@ class Reader
   attr_reader :email
 
   def initialize(name:, email:, city:, street:, house:)
-    validate_arguments(name, email, city, street, house)
+    validate(name, email, city, street, house)
 
     @name   = name
     @email  = email
@@ -21,16 +21,23 @@ class Reader
 
   private
 
-  def validate_arguments(*args)
-    strings = args.select { |argument| argument.is_a?(String) }
-    nums = args.select { |argument| argument.is_a?(Integer) }
+  def validate(name, email, city, street, house)
+    validate_strings(name, email, city, street)
+    validate_integers(house)
+  end
 
-    strings.each do |argument|
-      raise ArgumentError, 'String souldn\'t be empty^^' if argument.strip.empty?
+  def validate_strings(*args)
+    puts args
+    args.each do |argument|
+      raise ArgumentError, 'Argument should be a String^^' unless argument.is_a? String
+      raise ArgumentError, 'Argument should not be empty^^' if argument.strip.empty?
     end
+  end
 
-    nums.each do |argument|
-      raise ArgumentError, 'Number should be positive^^' unless argument.positive?
+  def validate_integers(*args)
+    args.each do |argument|
+      raise ArgumentError, 'Argument should be an Integer^^' unless argument.is_a? Integer
+      raise ArgumentError, 'Argument should be positive^^' unless argument.positive?
     end
   end
 
