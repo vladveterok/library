@@ -28,7 +28,7 @@ class Book
   end
 
   def validate_author(author)
-    raise ArgumentError, 'Author should be an instance of Author^^' unless author.is_a? Author
+    raise ArgumentError, 'Author should be an instance of an Author^^' unless author.is_a? Author
   end
 
   def to_s
