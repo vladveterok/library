@@ -6,7 +6,7 @@ class Book
   attr_reader :author
 
   def initialize(title, author)
-    raise ArgumentError, 'Title should exist & should be a String^^' if !title.is_a?(String) || title.strip.empty?
+    validate(title, author)
 
     @title = title
     @author = author
@@ -17,6 +17,19 @@ class Book
   end
 
   private
+
+  def validate(title, author)
+    validate_title(title)
+    validate_author(author)
+  end
+
+  def validate_title(title)
+    raise ArgumentError, 'Title should exist & should be a String^^' if !title.is_a?(String) || title.strip.empty?
+  end
+
+  def validate_author(author)
+    raise ArgumentError, 'Author should be an instance of Author^^' unless author.is_a? Author
+  end
 
   def to_s
     "type: #{self.class.name}, " \
