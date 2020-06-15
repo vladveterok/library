@@ -85,7 +85,7 @@ puts "let's hit 'library.add_to_library' and add all these stuff into our librar
 puts "Let's see... the number of entities in Library is #{library.all_entities.size}. Library is full!:)"
 puts
 puts '=========== 6) SAVE LIBRARY ============'
-library.save
+library.save(library.all_entities)
 
 puts "Here we just hit 'library.save', so you should see our entities in library.yaml from now!^^"
 puts

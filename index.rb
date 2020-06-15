@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
 require_relative 'bootstrap'
-require 'date'
-require 'yaml'
 
 puts '=========== 1) INSTANTIATE LIBRARY AND CLEAR ENTITIES FOR THE TEST PURPOSE ============'
 
 library = Library.new
-library.all_entities.clear if library.all_entities
+# puts library.load_yaml
+puts library.all_entities
 
 puts '=========== 2) CREATE BASIC ENTITIES ============'
 
@@ -28,7 +27,7 @@ puts reader1 = Reader.new(
   street: 'Shoto st',
   house: 5
 )
-# name:, email:, city:, street:, house:
+
 puts reader2 = Reader.new(
   name: 'Two Maria',
   email: 'maria@gmail.com',
@@ -86,7 +85,7 @@ puts library.all_entities
 
 puts '=========== 4) SAVE LIBRARY ============'
 
-library.save
+library.save(library.all_entities)
 
 puts '=========== TOP READERS ============'
 puts 'The top reader is: '

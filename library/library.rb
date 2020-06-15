@@ -2,19 +2,20 @@
 
 # Library class collects entities, saves library state into library.yaml and loads it
 class Library
+  include Loader
+
   attr_reader :lib_db
   attr_reader :authors
 
   LIBRARY_FILE_NAME = 'library.yaml'
 
   def initialize
-    @all_entities = []
     @authors = []
     @books   = []
     @readers = []
     @orders  = []
 
-    File.exist?("./db/#{LIBRARY_FILE_NAME}") ? load_yaml : File.open("./db/#{LIBRARY_FILE_NAME}", 'w')
+    load_from_yaml
   end
 
   def add_to_library(*entities)
@@ -30,6 +31,10 @@ class Library
 
   def all_entities
     @authors + @books + @readers + @orders
+  end
+
+  def load_from_yaml
+    add_to_library(*load.flatten(2))
   end
 
   def top_readers(num = 1)
@@ -51,32 +56,9 @@ class Library
     top_books(num).flatten.select { |entity| entity.is_a?(Order) }.uniq(&:reader).count
   end
 
-  # In File.open() replace flag 'w' with 'a' for a dynamic record to the library.yaml.
-  # Now, for the purpose of testing, db rewrites itself each time
-  def save
-    File.open("./db/#{LIBRARY_FILE_NAME}", 'w') do |file|
-      all_entities.each do |ent|
-        file.write(ent.to_yaml)
-      end
-    end
-  end
-
-  def load_yaml
-    File.open("./db/#{LIBRARY_FILE_NAME}", 'r') do |file|
-      @all_entities.push(*YAML.load_stream(file))
-    end
-  end
-
   private
 
   def in_library?(entity)
     all_entities.any? { |ent| ent == entity } ? true : false
   end
 end
-
-# Statistica: взять массив ордерс и max_by или group_by order.book => значение книга, значение -- ордеры
-# top = uniq_orders.group_by(&:reader).max(count) { |current, next| current[1].size <=> next[1].size }
-
-# rewrite sttistics
-# rewrite save/load
-# remove @all_entities
