@@ -27,7 +27,6 @@ class Reader
   end
 
   def validate_strings(*args)
-    puts args
     args.each do |argument|
       raise ArgumentError, 'Argument should be a String^^' unless argument.is_a? String
       raise ArgumentError, 'Argument should not be empty^^' if argument.strip.empty?
