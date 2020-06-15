@@ -43,7 +43,7 @@ class Library
     # @all_entities.select { |entity| entity.is_a?(Book) }
     #             .max_by(num) { |book| book.all_readers.uniq.length }
     @orders.group_by(&:book).max(num) { |a, b| a[1].length <=> b[1].length }
-           .flatten.select { |entity| entity.is_a? Book }
+           # .flatten.select { |entity| entity.is_a? Book }
   end
 
   def count_top_books_readers(num = 3)
