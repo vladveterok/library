@@ -3,19 +3,17 @@
 # Well, that's a book. You can read it (actually, you can't, but let's say you can)
 class Book
   attr_reader :title
-  attr_reader :all_readers
+  attr_reader :author
 
   def initialize(title, author)
     raise ArgumentError, 'Title should exist & should be a String^^' if !title.is_a?(String) || title.strip.empty?
 
     @title = title
     @author = author
-
-    @all_readers = []
   end
 
-  def add_reader(reader)
-    @all_readers << reader
+  def ==(other)
+    (other.is_a? Book) && (@title == other.title) && (@author == other.author)
   end
 
   private
