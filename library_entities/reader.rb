@@ -2,7 +2,6 @@
 
 # This is Reader. Readers order books
 class Reader
-  attr_reader :name
   attr_reader :email
 
   def initialize(name:, email:, city:, street:, house:)

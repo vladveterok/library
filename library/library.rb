@@ -4,9 +4,6 @@
 class Library
   include Loader
 
-  attr_reader :lib_db
-  attr_reader :authors
-
   LIBRARY_FILE_NAME = 'library.yaml'
 
   def initialize
