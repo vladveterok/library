@@ -9,9 +9,10 @@ class Order
     @book = book
     @reader = reader
     @date = date
+  end
 
-    @book.add_reader(@reader)
-    @reader.add_book(@book)
+  def ==(other)
+    (other.is_a? Order) && (@book == other.book) && (@reader == other.reader)
   end
 
   private
