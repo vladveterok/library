@@ -4,6 +4,7 @@
 class Order
   attr_reader :book
   attr_reader :reader
+  attr_reader :date
 
   def initialize(book, reader, date = Date.today)
     @book = book
@@ -12,7 +13,7 @@ class Order
   end
 
   def ==(other)
-    (other.is_a? Order) && (@book == other.book) && (@reader == other.reader)
+    (other.is_a? Order) && (@book == other.book) && (@reader == other.reader) && (@date == other.date)
   end
 
   private
