@@ -63,9 +63,9 @@ puts reader5 = Reader.new(
 puts
 
 puts order1 = Order.new(book1, reader1)
-puts order2 = Order.new(book2, reader1)
+puts order2 = Order.new(book1, reader2)
 puts order3 = Order.new(book2, reader1)
-puts order4 = Order.new(book2, reader2)
+puts order4 = Order.new(book2, reader3)
 # puts order5 = Order.new(book2, reader4)
 # puts order6 = Order.new(book2, reader4)
 # puts order7 = Order.new(book3, reader3)

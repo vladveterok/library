@@ -35,14 +35,15 @@ class Library
   def top_readers(num = 1)
     # @readers.max_by(num) { |reader| reader.all_books.uniq.length }
 
-    @orders.uniq.group_by(&:reader).max(num) { |a, b| a[1].length <=> b[1].length }
+    @orders.group_by(&:reader).max(num) { |a, b| a[1].length <=> b[1].length }
            .flatten.select { |entity| entity.is_a? Reader }
   end
 
   def top_books(num = 1)
     # @all_entities.select { |entity| entity.is_a?(Book) }
     #             .max_by(num) { |book| book.all_readers.uniq.length }
-    @orders.uniq.group_by(&:book).max(num) { |a, b| a[1].length <=> b[1].length }
+    @orders.group_by(&:book).max(num) { |a, b| a[1].length <=> b[1].length }
+           .flatten.select { |entity| entity.is_a? Book }
   end
 
   def count_top_books_readers(num = 3)
