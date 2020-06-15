@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require_relative 'library/loader'
+require 'yaml/store'
+require 'date'
 require_relative 'library/library'
 require_relative 'library_entities/author.rb'
 require_relative 'library_entities/book.rb'
