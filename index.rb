@@ -64,12 +64,12 @@ puts
 
 puts order1 = Order.new(book1, reader1)
 puts order2 = Order.new(book2, reader1)
-puts order3 = Order.new(book1, reader1)
+puts order3 = Order.new(book2, reader1)
 puts order4 = Order.new(book2, reader2)
 # puts order5 = Order.new(book2, reader4)
 # puts order6 = Order.new(book2, reader4)
 # puts order7 = Order.new(book3, reader3)
-puts order8 = Order.new(book2, reader3)
+puts order8 = Order.new(book3, reader3)
 puts order9 = Order.new(book3, reader3)
 puts order10 = Order.new(book3, reader3)
 # puts order11 = Order.new(book3, reader3)
@@ -93,7 +93,7 @@ puts 'The top reader is: '
 puts library.top_readers
 puts
 puts 'Two top readers are: '
-# puts library.top_readers(2)
+puts library.top_readers(2)
 puts
 puts '=========== TOP BOOKS ============'
 puts 'The top book is: '
