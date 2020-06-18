@@ -31,7 +31,7 @@ class Library
   end
 
   def load_from_yaml
-    add_to_library(*load.flatten(2))
+    add_to_library(*load)
   end
 
   def top_readers(num = 1)

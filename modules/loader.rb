@@ -20,7 +20,7 @@ module Loader
     save(all_entities) unless File.exist?("./db/#{LIBRARY_FILE_NAME}")
 
     File.open("./db/#{LIBRARY_FILE_NAME}", 'r') do |file|
-      YAML.safe_load file, %i[Author Book Reader Order Date], [], true
+      YAML.safe_load(file, %i[Author Book Reader Order Date], [], true).flatten(2)
     end
   end
 end
