@@ -53,8 +53,8 @@ puts reader4 = Reader.new(
 )
 
 puts reader5 = Reader.new(
-  name: 'Four Lil',
-  email: 'lil@gmail.com',
+  name: 'Five Varvar',
+  email: 'varvar@gmail.com',
   city: 'WG',
   street: 'Bitch st',
   house: 159
@@ -65,13 +65,14 @@ puts order1 = Order.new(book1, reader1)
 puts order2 = Order.new(book1, reader2)
 puts order3 = Order.new(book2, reader1)
 puts order4 = Order.new(book2, reader3)
-# puts order5 = Order.new(book2, reader4)
-# puts order6 = Order.new(book2, reader4)
+puts order5 = Order.new(book2, reader4)
+puts order6 = Order.new(book2, reader4)
 puts order7 = Order.new(book2, reader4)
 puts order8 = Order.new(book3, reader3)
 puts order9 = Order.new(book3, reader3)
 puts order10 = Order.new(book3, reader3)
 puts order11 = Order.new(book3, reader3)
+puts order12 = Order.new(book4, reader5)
 puts
 
 puts '=========== 3) ADD ENTITIES TO LIBRARY ============'
@@ -79,7 +80,8 @@ puts '=========== 3) ADD ENTITIES TO LIBRARY ============'
 library.add_to_library(author1, author2, author3, author4,
                        book1, book2, book3, book4,
                        reader1, reader2, reader3, reader4, reader5,
-                       order1, order2, order3, order4, order7, order8, order9, order10, order11)
+                       order1, order2, order3, order4, order5, order6,
+                       order7, order8, order9, order10, order11, order12)
 
 puts library.all_entities
 
@@ -89,18 +91,18 @@ library.save(library.all_entities)
 
 puts '=========== TOP READERS ============'
 puts 'The top reader is: '
-puts library.top_readers
+puts library.top_readers(library.orders)
 puts
 puts 'Two top readers are: '
-puts library.top_readers(2)
+puts library.top_readers(library.orders, 2)
 puts
 puts '=========== TOP BOOKS ============'
 puts 'The top book is: '
-puts library.top_books
+puts library.top_books(library.orders)
 puts
 puts 'Two top books are: '
-puts library.top_books(2)
+puts library.top_books(library.orders, 2)
 puts
 puts '=========== NUM OF READERS OF TOP BOOKS ============'
 puts 'The very number of readers of two top books is: '
-puts library.count_top_books_readers(2)
+puts library.count_top_books_readers(library.orders, 2)

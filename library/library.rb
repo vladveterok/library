@@ -3,6 +3,9 @@
 # Library class collects entities, saves library state into library.yaml and loads it
 class Library
   include Loader
+  include Statistics
+
+  attr_reader :orders
 
   LIBRARY_FILE_NAME = 'library.yaml'
 
@@ -32,19 +35,6 @@ class Library
 
   def load_from_yaml
     add_to_library(*load)
-  end
-
-  def top_readers(num = 1)
-    @orders.group_by(&:reader).max(num) { |this, later| this[1].length <=> later[1].length }
-           .flatten.select { |entity| entity.is_a? Reader }
-  end
-
-  def top_books(num = 1)
-    @orders.group_by(&:book).max(num) { |this, later| this[1].length <=> later[1].length }
-  end
-
-  def count_top_books_readers(num = 3)
-    top_books(num).flatten.select { |entity| entity.is_a?(Order) }.uniq(&:reader).count
   end
 
   private
