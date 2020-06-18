@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'library/loader'
+require_relative 'modules/loader'
 require 'yaml/store'
 require 'date'
 require_relative 'library/library'
