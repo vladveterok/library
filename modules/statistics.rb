@@ -2,8 +2,7 @@
 
 # top_readers -- returns n top readers of books in library
 # top_books -- returns n top books in library
-# count_top_books_readers -- counts the number of unique readers of n books
-# and returnes the number
+# count_top_books_readers -- returns the number of unique readers of n books
 module Statistics
   def top_readers(orders, num = 1)
     orders.group_by(&:reader).max(num) { |this, later| this[1].length <=> later[1].length }
