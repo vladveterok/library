@@ -8,5 +8,4 @@ AllCops:
       - '.git/**/*'
       - 'Gemfile'
       - 'index.rb'
-      - 'spec/*'
       - 'test_folder/*'
