@@ -2,6 +2,8 @@
 
 # This is Reader. Readers order books
 class Reader
+  include Validation
+
   attr_reader :email
 
   def initialize(name:, email:, city:, street:, house:)
@@ -23,20 +25,6 @@ class Reader
   def validate(name, email, city, street, house)
     validate_strings(name, email, city, street)
     validate_integers(house)
-  end
-
-  def validate_strings(*args)
-    args.each do |argument|
-      raise ArgumentError, 'Argument should be a String^^' unless argument.is_a? String
-      raise ArgumentError, 'Argument should not be empty^^' if argument.strip.empty?
-    end
-  end
-
-  def validate_integers(*args)
-    args.each do |argument|
-      raise ArgumentError, 'Argument should be an Integer^^' unless argument.is_a? Integer
-      raise ArgumentError, 'Argument should be positive^^' unless argument.positive?
-    end
   end
 
   def to_s
