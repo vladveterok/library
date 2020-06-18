@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'modules/loader'
+require_relative 'modules/validation'
 require_relative 'modules/statistics'
 require 'yaml/store'
 require 'date'
