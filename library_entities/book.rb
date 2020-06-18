@@ -8,7 +8,8 @@ class Book
   attr_reader :author
 
   def initialize(title, author)
-    validate(title, Author, author)
+    validate_strings(title)
+    validate_class(Author, author)
 
     @title = title
     @author = author
@@ -19,11 +20,6 @@ class Book
   end
 
   private
-
-  def validate(title, clas, author)
-    validate_strings(title)
-    validate_class(clas, author)
-  end
 
   def to_s
     "type: #{self.class.name}, " \

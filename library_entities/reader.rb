@@ -7,7 +7,8 @@ class Reader
   attr_reader :email
 
   def initialize(name:, email:, city:, street:, house:)
-    validate(name, email, city, street, house)
+    validate_strings(name, email, city, street)
+    validate_integers(house)
 
     @name   = name
     @email  = email
@@ -21,11 +22,6 @@ class Reader
   end
 
   private
-
-  def validate(name, email, city, street, house)
-    validate_strings(name, email, city, street)
-    validate_integers(house)
-  end
 
   def to_s
     "type: #{self.class.name}, " \
