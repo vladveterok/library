@@ -2,10 +2,12 @@
 
 # Author stores all the created authors if not stored already
 class Author
+  include Validation
+
   attr_reader :name
 
   def initialize(name, biography = 'empty')
-    raise ArgumentError, 'Name should exist & should be a String^^' if !name.is_a?(String) || name.strip.empty?
+    validate_strings(name, biography)
 
     @name = name
     @biography = biography

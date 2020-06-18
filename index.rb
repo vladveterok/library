@@ -10,7 +10,7 @@ puts library.all_entities
 
 puts '=========== 2) CREATE BASIC ENTITIES ============'
 
-puts author1 = Author.new('Jack Kerouac')
+puts author1 = Author.new('Jack Kerouac', 'LOL he is an author))')
 puts author2 = Author.new('Viktor Pelevin')
 puts author3 = Author.new('Ken Kesey')
 puts author4 = Author.new('Ken Kesey')
