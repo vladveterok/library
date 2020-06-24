@@ -40,6 +40,6 @@ class Library
   private
 
   def in_library?(entity)
-    all_entities.any? { |ent| ent == entity } ? true : false
+    all_entities.any? { |ent| ent == entity }
   end
 end
