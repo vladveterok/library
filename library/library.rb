@@ -7,8 +7,6 @@ class Library
 
   attr_reader :orders
 
-  LIBRARY_FILE_NAME = 'library.yaml'
-
   def initialize
     @authors = []
     @books   = []
