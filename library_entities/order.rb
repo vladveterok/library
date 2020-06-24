@@ -11,6 +11,7 @@ class Order
   def initialize(book, reader, date = Date.today)
     validate_class(Book, book)
     validate_class(Reader, reader)
+    validate_class(Date, date)
 
     @book = book
     @reader = reader
