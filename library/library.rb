@@ -13,7 +13,7 @@ class Library
     @readers = []
     @orders  = []
 
-    load_from_yaml
+    add_to_library(*load)
   end
 
   def add_to_library(*entities)
@@ -29,10 +29,6 @@ class Library
 
   def all_entities
     @authors + @books + @readers + @orders
-  end
-
-  def load_from_yaml
-    add_to_library(*load)
   end
 
   private
